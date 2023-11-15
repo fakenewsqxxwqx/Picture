@@ -1,0 +1,41 @@
+﻿<Window x:Class="Picture.Upload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Picture"
+        mc:Ignorable="d"
+        Title="上传图片" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0"></Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="图片：" VerticalAlignment="Center" />
+            </Grid>
+            <Image Grid.Row="1" Source="{Binding SelectedImage}" Width="200" Height="200" Stretch="Uniform" />
+
+            <Button x:Name="btn_SelectPicture" Grid.Row="2" Content="选择图片" Style="{StaticResource CustomButtonStyle}" Click="btn_SelectPicture_Click" />
+
+            <ComboBox x:Name="cb_Category" Text="分类" Grid.Row="3" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" Style="{StaticResource CustomComboBoxStyle}" SelectionChanged="cb_Category_SelectionChanged" />
+
+            <Button x:Name="btn_Submit" Grid.Row="5" Content="提交" Style="{StaticResource CustomButtonStyle}" Click="btn_Submit_Click" />
+        </Grid>
+        <Grid Grid.Column="2"></Grid>
+        
+    </Grid>
+</Window>
